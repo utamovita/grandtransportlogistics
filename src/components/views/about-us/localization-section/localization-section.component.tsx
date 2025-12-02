@@ -33,7 +33,7 @@ function LocalizationBox() {
       <p className={styles.text}>{t("aboutUs.localization.subtitle")}</p>
       <FlexComponent className={styles.officeAddress} alignItems={"alignCenter"}>
         <PinIcon className={styles.pinIcon} />
-        <span>Arkada Invest, Fordońska 2, 85-085 Bydgoszcz</span>
+        <span>Brodnicka 4, 85-735 Bydgoszcz</span>
       </FlexComponent>
 
       <div className={styles.imageWrapper}>
