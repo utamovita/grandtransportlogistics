@@ -20,6 +20,7 @@ export type TextFieldProps = AriaTextFieldProps & {
 const TextAreaField = forwardRef<HTMLTextAreaElement, TextFieldProps>((props, ref) => {
   const { label, error, halfWidth = false, errorMessage = undefined } = props;
   const internalRef = useRef<HTMLTextAreaElement>(null);
+  // @ts-ignore
   const { labelProps, inputProps, isInvalid } = useTextField({ ...props, inputElementType: "textarea" }, internalRef);
 
   useImperativeHandle(ref, () => internalRef.current!);
