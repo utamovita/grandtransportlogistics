@@ -1,14 +1,33 @@
-import styles from "./team.module.scss";
+import React from "react";
+import Image from "next/image";
+import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import { Container } from "@design-system/layout/utilities";
-import { team } from "@components/views/contact/team/team.config";
-import Image from "next/image";
+import styles from "./team.module.scss";
+
+// Icons
 import { HomeIconColored } from "@components/views/contact/team/icons/home.icon";
 import PhoneIconColored from "@components/views/contact/team/icons/phone.icon";
 import ChatIconColored from "@components/views/contact/team/icons/chat.icon";
 
-function Team() {
+// Sanity
+import { urlFor } from "@src/sanity/lib/image";
+import { TeamMember } from "@customTypes/sanity-data";
+import { Locale } from "@customTypes/pages";
+
+type TeamProps = {
+  members: TeamMember[];
+};
+
+function Team({ members }: TeamProps) {
   const { t } = useTranslation("common");
+  const { locale } = useRouter();
+  const currentLocale = (locale as Locale) || "pl";
+
+  // Helper to safely get image URL
+  const getImageUrl = (source: any) => {
+    return source ? urlFor(source).width(445).height(800).url() : "";
+  };
 
   return (
     <Container>
@@ -19,17 +38,21 @@ function Team() {
         </h3>
 
         <div className={styles.team}>
-          {team.map((item, index) => (
-            <div key={index} className={styles.item}>
+          {members.map((item) => (
+            <div key={item._id} className={styles.item}>
               <div className={styles.content}>
                 <h4 className={styles.name}>{item.name}</h4>
-                <h5 className={styles.role}>{t(item.role)}</h5>
+
+                {/* Dynamic Localization from Sanity Object */}
+                <h5 className={styles.role}>
+                  {item.role?.[currentLocale] || item.role?.pl}
+                </h5>
+
                 <ul className={styles.list}>
                   <li className={styles.element}>
                     <div className={styles.iconWrapper}>
                       <HomeIconColored />
                     </div>
-
                     {item.fullName}
                   </li>
                   <li className={styles.element}>
@@ -48,26 +71,25 @@ function Team() {
                     </span>
                   </li>
                 </ul>
+
                 <div className={styles.image}>
                   <Image
-                    src={item.img1}
-                    alt={item.name}
+                    src={getImageUrl(item.photoFront)}
+                    alt={`${item.name} - Front`}
                     width={445}
                     height={800}
-                    style={{
-                      objectFit: "cover",
-                    }}
+                    style={{ objectFit: "cover" }}
                     className={styles.image1}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                   <Image
-                    src={item.img2}
-                    alt={item.name}
+                    src={getImageUrl(item.photoBack)}
+                    alt={`${item.name} - Back`}
                     width={445}
                     height={800}
-                    style={{
-                      objectFit: "cover",
-                    }}
+                    style={{ objectFit: "cover" }}
                     className={styles.image2}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 </div>
               </div>

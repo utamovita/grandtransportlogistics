@@ -19,6 +19,7 @@
     "@hookform/resolvers": "^3.9.1",
     "@sanity/icons": "^3.7.4",
     "@sanity/image-url": "^1.2.0",
+    "@sanity/orderable-document-list": "^1.4.0",
     "@sanity/vision": "^4.19.0",
     "@types/lodash-es": "^4.17.12",
     "@typescript-eslint/eslint-plugin": "^7.9.0",
