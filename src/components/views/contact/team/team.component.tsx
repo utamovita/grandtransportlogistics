@@ -44,9 +44,7 @@ function Team({ members }: TeamProps) {
                 <h4 className={styles.name}>{item.name}</h4>
 
                 {/* Dynamic Localization from Sanity Object */}
-                <h5 className={styles.role}>
-                  {item.role?.[currentLocale] || item.role?.pl}
-                </h5>
+                <h5 className={styles.role}>{item.role?.[currentLocale] || item.role?.pl}</h5>
 
                 <ul className={styles.list}>
                   <li className={styles.element}>

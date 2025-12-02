@@ -15,11 +15,7 @@ export const structure: StructureResolver = (S, context) =>
         context,
       }),
 
-          S.divider(),
+      S.divider(),
 
-          ...S.documentTypeListItems().filter(
-            (item) =>
-              item.getId() &&
-              !["teamMember"].includes(item.getId()!)
-          ),
+      ...S.documentTypeListItems().filter((item) => item.getId() && !["teamMember"].includes(item.getId()!)),
     ]);

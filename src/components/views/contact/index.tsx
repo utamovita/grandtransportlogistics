@@ -15,4 +15,4 @@ function ContactView({ teamMembers }: ContactViewProps) {
   );
 }
 
-export { ContactView }
+export { ContactView };

@@ -58,7 +58,7 @@ export const teamMemberType = defineType({
       type: "image",
       options: { hotspot: true },
       validation: (rule) => rule.required(),
-    })
+    }),
   ],
   preview: {
     select: {

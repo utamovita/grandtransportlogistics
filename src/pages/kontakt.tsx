@@ -14,14 +14,13 @@ type ContactPageProps = {
 };
 
 export default function ContactPage({ teamMembers }: ContactPageProps) {
-
   const { t } = useTranslation("common");
 
   return (
     <>
       <NextSeo title={t("seo.contact.title")} description={t("seo.contact.description")} />
       <BaseLayout>
-        <ContactView teamMembers={teamMembers}/>
+        <ContactView teamMembers={teamMembers} />
       </BaseLayout>
     </>
   );
