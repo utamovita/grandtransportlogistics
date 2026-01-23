@@ -38,15 +38,9 @@ function MaintenanceScreen() {
         <title>Strona w przebudowie | Under reconstruction</title>
         <meta name="robots" content="noindex, nofollow" />
       </Head>
-      <h1 style={{ fontSize: "2.5rem", marginBottom: "1rem", fontWeight: "bold" }}>
-        Strona w przebudowie
-      </h1>
-      <h2 style={{ fontSize: "1.5rem", color: "#cccccc", fontWeight: "normal" }}>
-        Website under reconstruction
-      </h2>
-      <p style={{ marginTop: "3rem", color: "#666666", fontSize: "0.9rem" }}>
-        Grand Transport Logistics
-      </p>
+      <h1 style={{ fontSize: "2.5rem", marginBottom: "1rem", fontWeight: "bold" }}>Strona w przebudowie</h1>
+      <h2 style={{ fontSize: "1.5rem", color: "#cccccc", fontWeight: "normal" }}>Website under reconstruction</h2>
+      <p style={{ marginTop: "3rem", color: "#666666", fontSize: "0.9rem" }}>Grand Transport Logistics</p>
     </div>
   );
 }
